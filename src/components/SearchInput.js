@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'inferno';
 import _ from 'underscore';
 import Icon from './Icon';
 import './SearchInput.css';
@@ -16,7 +16,7 @@ export default class extends Component{
     const inputProps = _.chain(props).omit('clearable').value()
     return <span className="xkcpn-input">
       <input {...inputProps} ref={el=>this.inputEl = el}></input>
-      {/* {props.clearable && props.value &&
+      {props.clearable && props.value &&
         <span className="clear-btn">
           <Icon type="close-o" onClick={()=>{
             const event = {target: {value: ''}}
@@ -24,7 +24,7 @@ export default class extends Component{
             this.inputEl.focus()
           }}/>
         </span>
-      } */}
+      }
     </span>
   }
 }
