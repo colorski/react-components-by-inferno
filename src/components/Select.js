@@ -1,4 +1,3 @@
-//import Inferno from 'inferno';
 import _ from 'underscore';
 
 export default function Select(props){

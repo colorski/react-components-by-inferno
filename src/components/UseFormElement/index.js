@@ -1,4 +1,4 @@
-import { Component } from 'inferno';
+import Component from 'inferno-component'
 import Select from '../Select';
 
 export default class extends Component {
@@ -14,12 +14,13 @@ export default class extends Component {
     const {stageVal, options} = this.state
     return (
       <div className="form-element">
+        <p>something wrong!</p>
         <Select
           value={stageVal}
           options={ options }
           emptyItem={ true }
           placeholderItem={ false }
-          onChange={e=> {this.setState({stageVal: e.target.value}); console.log(e.target.value)}}
+          onChange={e=> {this.setState({stageVal: 1})}}
         />
       </div>
     )

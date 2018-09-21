@@ -10,7 +10,7 @@ export default class TodoList extends Component {
       listData: []
     }
 
-    this.handleIptChange = this.handleIptChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
     this.handleDeleteItemClick = this.handleDeleteItemClick.bind(this);
   }
@@ -20,7 +20,8 @@ export default class TodoList extends Component {
       <div style={{margin: '2rem auto'}}>
         <div className="center">
           <label htmlFor="iptArea">输入内容：</label>
-          <input type="text" id="iptArea" placeholder="输入内容" value={this.state.iptVal} onChange={this.handleIptChange} />
+          <input type="text" id="iptArea" onInput={this.handleInputChange} value={this.state.iptVal} />
+          {/*注意：在inferno里input的事件是onInput*/}
           <button onClick={this.handleButtonClick}>提交</button>
         </div>
         <ul className="center todoListem">
@@ -28,6 +29,11 @@ export default class TodoList extends Component {
         </ul>
       </div>
     )
+  }
+
+  handleInputChange(e) {
+    const v = e.target.value;
+    this.setState(() => ({iptVal: v}));
   }
 
   getListItem () {
@@ -45,11 +51,6 @@ export default class TodoList extends Component {
         <li className="no-pointer">暂无内容</li>
       );
     }
-  }
-
-  handleIptChange(e) {
-    const v = e.target.value;
-    this.setState(() => ({iptVal: v}));
   }
 
   handleButtonClick() {
